@@ -1,0 +1,26 @@
+Написать 4 класса с соответствующими полями и методами:
+1) ElectronicStandard:
+- int cord_type: должен быть общим для все объектов программы (храниться в одном регионе памяти)
+- string standard_name
+- const device_type (mobile or stationary)
+- void set_cord(int): устанавливает cord_type
+2) Phone (protected ElectronicStandard):
+- int number
+- void call(int): печатает номер и тип звонка (audio only)
+3) Monitor (protected ElectronicStandard):
+- int[2] resolution
+- int frequency
+- void draw(): печатает прямоугольник размера resolution
+- double get_latency(): возвращает частоту обновления 100/frequency
+4) Smartphone (public Phone, public Monitor):
+- void call(int): печатает номер и тип звонка (audio and video)
+- void firmware(): печатает standard_name, monitor_resolution, phone_number
+- void draw(): печатает прямоугольник с задержкой get_latency
+
++ 2 глобальных полиморфных функции:
+void display(Monitor * x) - вызывает метод x->draw
+void get_standard(ElectronicStandard *x) - печатет все поля ElectronicStandard для произвольного девайса (класса-наследника)
+
+Что поможет: static, initializer_list, virtual, friend и оператор ::
+
+Все атрибуты (поля) классов должны быть приватными (АТД)
